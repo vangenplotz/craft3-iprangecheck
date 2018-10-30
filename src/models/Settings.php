@@ -27,7 +27,7 @@ class Settings extends Model
      * Message if user is out of ip range 
      * @var string
      */
-    public $errorMessage = "No access";
+    public $message = "No access";
 
    
     /**
@@ -40,7 +40,7 @@ class Settings extends Model
             
             [ 'enableCheck', 'default', 'value' => false ],
             [ 'ipRange', 'default', 'value' => [] ],
-            [ 'errorMessage', 'default', 'value' => 'No access' ],
+            [ 'message', 'default', 'value' => 'No access' ],
         ];
     }
 }

@@ -32,7 +32,9 @@ To install the plugin, follow these instructions.
 
 ## Using Ip Range Check
 
--Insert text here-
+1. Copy the config.php over to craft/config/ip-range-check.php and insert your ip ranges.
+2. use the craft.ipRangeCheck.checkValidIp to check if current ip is valid. Will return
+   an array with access set to true / false, and the user message.
 
 ## Ip Range Check Roadmap
 

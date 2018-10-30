@@ -42,7 +42,7 @@ class IpRangeCheckService extends Component
 
         // is the check enabled
         if ( $settings->enableCheck ) {
-            $arrReturn['message']= $settings->errorMessage;
+            $arrReturn['message']= $settings->message;
             $ip  = Craft::$app->request->getUserIP();
             // parse an address in any format (IPv4 or IPv6):
             $address = \IPLib\Factory::addressFromString($ip);
