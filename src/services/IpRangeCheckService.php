@@ -40,21 +40,23 @@ class IpRangeCheckService extends Component
        
         $settings = IpRangeCheck::$plugin->getSettings();
 
-        // is the check enabled
-        if ( $settings->enableCheck ) {
-            $arrReturn['message']= $settings->message;
-            $ip  = Craft::$app->request->getUserIP();
-            // parse an address in any format (IPv4 or IPv6):
-            $address = \IPLib\Factory::addressFromString($ip);
-           
-            if(is_array($settings->ipRange)){
-                 
-                foreach( $settings->ipRange as $ipAddress ) {
-                    // parse  a range in any format
-                    $range = \IPLib\Factory::rangeFromString($ipAddress);
-                    // check for match
-                    if($range->contains($address)){
-                        $arrReturn['access'] = true;
+        if(is_object($settings)){
+            // is the check enabled
+            if ( property_exists($settings, 'enableCheck') and  $settings->enableCheck ) {
+                $arrReturn['message']= $settings->message;
+                $ip  = Craft::$app->request->getUserIP();
+                // parse an address in any format (IPv4 or IPv6):
+                $address = \IPLib\Factory::addressFromString($ip);
+               
+                if(property_exists($settings,'ipRange') and is_array($settings->ipRange)){
+                     
+                    foreach( $settings->ipRange as $ipAddress ) {
+                        // parse  a range in any format
+                        $range = \IPLib\Factory::rangeFromString($ipAddress);
+                        // check for match
+                        if($range->contains($address)){
+                            $arrReturn['access'] = true;
+                        }
                     }
                 }
             }
