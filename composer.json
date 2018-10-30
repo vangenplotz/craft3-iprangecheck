@@ -2,7 +2,7 @@
     "name": "vangenplotz/ip-range-check",
     "description": "Checks if users ip is in a range og ips.",
     "type": "craft-plugin",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "keywords": [
         "craft",
         "cms",
