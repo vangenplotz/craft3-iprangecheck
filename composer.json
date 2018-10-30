@@ -1,0 +1,44 @@
+{
+    "name": "vangenplotz/ip-range-check",
+    "description": "Checks if users ip is in a range og ips",
+    "type": "craft-plugin",
+    "version": "1.0.4",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "ip range check"
+    ],
+    "support": {
+        "docs": "https://github.com/-/ip-range-check/blob/master/README.md",
+        "issues": "https://github.com/-/ip-range-check/issues"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vangenplotz",
+            "homepage": "https://www.vangenplotz.no"
+        }
+    ],
+    "require": {
+        "craftcms/cms": "^3.0.0-RC1",
+        "mlocati/ip-lib": "^1.6"
+    },
+    "autoload": {
+        "psr-4": {
+          "vangenplotz\\iprangecheck\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "Ip Range Check",
+        "handle": "ip-range-check",
+        "hasCpSettings": true,
+        "hasCpSection": false,
+        "changelogUrl": "https://raw.githubusercontent.com/-/ip-range-check/master/CHANGELOG.md",
+        "components": {
+            "ipRangeCheckService": "vangenplotz\\iprangecheck\\services\\IpRangeCheckService"
+        },
+        "class": "vangenplotz\\iprangecheck\\IpRangeCheck"
+    }
+}

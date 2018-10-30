@@ -1,0 +1,27 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * vpElverumForms plugin for Craft CMS 3.x
+ *
+ * vpElverumForms Settings.twig
+ *
+ * @author    vangenplotz
+ * @copyright Copyright (c) 2018 vangenplotz
+ * @link      vangenplotz.no
+ * @package   VpElverumForms
+ * @since     1.0.0
+ */
+#}
+
+{% import "_includes/forms" as forms %}
+
+
+{{ forms.textField({
+  label: "No access Message",
+  instructions: 'Message if page is viewed from outside valid ip range',
+  id: 'errorMessage',
+  name: 'errorMessage',
+  value: settings['errorMessage'],
+  errors: settings.getErrors('errorMessage')
+}) }}
+
