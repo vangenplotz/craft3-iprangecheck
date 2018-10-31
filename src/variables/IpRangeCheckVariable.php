@@ -29,5 +29,9 @@ class IpRangeCheckVariable
     public function checkValidIp(){
         return IpRangeCheck::$plugin->ipRangeCheckService->checkIpRange();
     }
+
+    public function getNoAccessMessage(){
+        return IpRangeCheck::$plugin->ipRangeCheckService->getNoAccessMessage();
+    }
     
 }

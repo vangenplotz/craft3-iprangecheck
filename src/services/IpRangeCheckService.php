@@ -36,14 +36,13 @@ class IpRangeCheckService extends Component
     public function checkIpRange()
     {
         // has access defaults to false
-        $arrReturn['access'] = false;
-       
+        
         $settings = IpRangeCheck::$plugin->getSettings();
 
         if(is_object($settings)){
             // is the check enabled
             if ( property_exists($settings, 'enableCheck') and  $settings->enableCheck ) {
-                $arrReturn['message']= $settings->message;
+               
                 $ip  = Craft::$app->request->getUserIP();
                 // parse an address in any format (IPv4 or IPv6):
                 $address = \IPLib\Factory::addressFromString($ip);
@@ -55,13 +54,25 @@ class IpRangeCheckService extends Component
                         $range = \IPLib\Factory::rangeFromString($ipAddress);
                         // check for match
                         if($range->contains($address)){
-                            $arrReturn['access'] = true;
+                            return true;
                         }
                     }
                 }
             }
         }
-        // check not enabled view page.
-        return $arrReturn;
+        return false;
+    }
+
+
+    /**
+     * 
+     *  Return message set in settings if no access to page
+     */ 
+    public function getNoAccessMessage() {
+        $settings = IpRangeCheck::$plugin->getSettings();
+        if(is_object($settings) and property_exists($settings, 'message')){
+            return $settings->message;
+        }
+        return null;
     }
 }
