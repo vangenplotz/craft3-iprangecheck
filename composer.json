@@ -11,7 +11,7 @@
         "ip range check"
     ],
     "support": {
-        "docs": "https://github.com/vangenplotz/craft3-iprangecheck/ip-range-check/blob/master/README.md",
+        "docs": "https://github.com/vangenplotz/craft3-iprangecheck/blob/master/README.md",
         "issues": "https://github.com/vangenplotz/craft3-iprangecheck/ip-range-check/issues"
     },
     "license": "MIT",
